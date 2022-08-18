@@ -1,0 +1,12 @@
+name: DayJob
+version: '${project.version}'
+main: com.wamel.dayjob.DayJob
+description: This is Day Server Job Plugin
+authors:
+  - 'WaMel_'
+
+commands:
+  job:
+    description: Hello, DayJob!
+  직업:
+    description: Hello, DayJob!
