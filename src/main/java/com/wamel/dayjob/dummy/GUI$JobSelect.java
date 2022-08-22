@@ -1,22 +1,11 @@
-package com.wamel.dayjob.gui;
+package com.wamel.dayjob.dummy;
 
-import com.wamel.dayjob.DayJob;
-import com.wamel.dayjob.data.DataManager$Player;
-import com.wamel.dayjob.util.ItemGenerator;
-import org.bukkit.Bukkit;
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.inventory.Inventory;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class GUI$JobSelect implements Listener {
 
-    private DayJob plugin = DayJob.getInstance();
+    /*
+    private final DayJob plugin = DayJob.getInstance();
     private static final String GUI_NAME = "§0직업 선택창";
     private static final Inventory GUI = Bukkit.createInventory(null, 9*5, GUI_NAME);
     private static List jobList = new ArrayList();
@@ -56,5 +45,15 @@ public class GUI$JobSelect implements Listener {
     public static void open(Player player) {
         player.openInventory(GUI);
     }
+    */
 
+    // GUI
+    //private static final String JOB_DISPLAY_NAME = "§6농부";
+    //private static final Material JOB_MATERIAL = Material.WHEAT;
+    //private static final String JOB_DESCRIPTION = "§f|| §6● §f작물 수급을 쉽고 안정적으로 할 수 있습니다.||§f" +
+    //        "|| §e● §f우클릭시 직업을 선택합니다.||§f";
+
+    //public Job$Farmer() {
+    //    GUI$JobSelect.addJob(JOB_CODE, JOB_MATERIAL, JOB_DISPLAY_NAME, JOB_DESCRIPTION);
+    //}
 }

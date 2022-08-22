@@ -6,7 +6,7 @@ authors:
   - 'WaMel_'
 
 commands:
-  job:
+  jreload:
     description: Hello, DayJob!
-  직업:
+  jobreload:
     description: Hello, DayJob!

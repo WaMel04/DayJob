@@ -11,12 +11,21 @@ import java.util.Iterator;
 
 public class ConfigManager$Player {
 
-    private static DayJob plugin = DayJob.getInstance();
+    private static final DayJob plugin = DayJob.getInstance();
 
     public static void load(String uuid) {
-        DataManager$Player.playerData.remove(uuid);
-
         File file = new File(plugin.getDataFolder() + "//player//" + uuid + ".yml");
+
+        if(!(file.exists())) {
+            HashMap<String, Object> map = new HashMap<>();
+            map.put("job", "none");
+            map.put("level", 1);
+            map.put("exp", 0);
+            map.put("jobpoint", 0);
+            DataManager$Player.playerData.put(uuid, map);
+            return;
+        }
+
         YamlConfiguration yaml = YamlConfiguration.loadConfiguration(file);
 
         HashMap<String, Object> map = new HashMap<>();
@@ -29,7 +38,6 @@ public class ConfigManager$Player {
 
     public static void save(String uuid) {
         File file = new File(plugin.getDataFolder() + "//player//" + uuid + ".yml");
-        //file.delete();
 
         YamlConfiguration yaml = YamlConfiguration.loadConfiguration(file);
         HashMap<String, Object> map = DataManager$Player.playerData.get(uuid);
@@ -49,11 +57,25 @@ public class ConfigManager$Player {
     }
 
     public static void saveAll() {
-        Iterator var1 = DataManager$Player.playerData.keySet().iterator();
+        Iterator itr = DataManager$Player.playerData.keySet().iterator();
 
-        while(var1.hasNext()) {
-            String uuid = (String) var1.next();
-            save(uuid);
+        while(itr.hasNext()) {
+            String uuid = (String) itr.next();
+            File file = new File(plugin.getDataFolder() + "//player//" + uuid + ".yml");
+
+            YamlConfiguration yaml = YamlConfiguration.loadConfiguration(file);
+            HashMap<String, Object> map = DataManager$Player.playerData.get(uuid);
+
+            yaml.set("job", map.get("job"));
+            yaml.set("level", map.get("level"));
+            yaml.set("exp", map.get("exp"));
+            yaml.set("jobpoint", map.get("jobpoint"));
+
+            try {
+                yaml.save(file);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 

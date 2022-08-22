@@ -16,8 +16,7 @@ public class ItemGenerator {
     }
 
     public static ItemStack create(Material material, int data, int amount) {
-        ItemStack item = new ItemStack(material, amount);
-        item.setData(new MaterialData(material, (byte) data));
+        ItemStack item = new ItemStack(material, amount, (byte) data);
         return item;
     }
 
